@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create LINE Stickers"
+  short_description: "Design and validate static LINE sticker sets"
+  default_prompt: "Use $create-line-stickers to plan, create, package, and validate a static LINE sticker set."
