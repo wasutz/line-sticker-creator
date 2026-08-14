@@ -1,4 +1,4 @@
 interface:
   display_name: "Create LINE Stickers"
-  short_description: "Design LINE stickers, including two-reference sets"
-  default_prompt: "Use $create-line-stickers to plan, create, package, and validate a static LINE sticker set, optionally taking abstract visual direction from one LINE Store URL and wording from another."
+  short_description: "Design LINE stickers with supplied or original wording"
+  default_prompt: "Use $create-line-stickers to plan, create, package, and validate a static LINE sticker set. If I provide only visual direction, create a high-utility phrase set appropriate to my language and audience."
