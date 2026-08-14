@@ -10,7 +10,9 @@
 ```
 
 
+## With Two references links
+
 ```
- Use $create-line-stickers to create an 40-pieces sticker set. Use the style from "https://store.line.me/stickershop/product/35313204/th", and use wording of "https://store.line.me/stickershop/product/11832683/th" and prepare submission-ready PNG.
+ Use $create-line-stickers to create an 40-pieces sticker set. Use the style from "https://store.line.me/stickershop/product/11832683/th", and use wording of "https://store.line.me/stickershop/product/34896847/th", the character will be "Bear" and prepare submission-ready PNG.
 
 ```
