@@ -7,10 +7,13 @@ import argparse
 import binascii
 import json
 import re
+import shutil
 import struct
 import sys
 import zipfile
 from pathlib import Path
+
+from check_sticker_crop_seams import suspicious_seams
 
 PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
 ALLOWED_COUNTS = {8, 16, 24, 32, 40}
@@ -133,6 +136,14 @@ def main() -> int:
                 errors.append(f"{name}: width and height must both be even")
         if color_type not in (4, 6):
             errors.append(f"{name}: PNG color type {color_type} has no alpha channel")
+
+    if shutil.which("magick"):
+        for path in numbered:
+            seams = suspicious_seams(path, minimum_area=700, minimum_run=60)
+            if seams:
+                errors.append(f"{path.name}: suspicious straight crop seam ({', '.join(seams)})")
+    else:
+        warnings.append("crop-seam audit skipped because ImageMagick `magick` is unavailable")
 
     known = {name for name, _ in required}
     unexpected_pngs = sorted(set(pngs) - known)

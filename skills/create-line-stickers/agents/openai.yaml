@@ -1,4 +1,4 @@
 interface:
   display_name: "Create LINE Stickers"
   short_description: "Design LINE stickers with supplied or original wording"
-  default_prompt: "Use $create-line-stickers to create, package, and validate a static LINE sticker set from my prompt or a prepared metadata.md, with bilingual LINE Creators Market metadata and the standard outer pack folder."
+  default_prompt: "Use $create-line-stickers to create, package, and validate a static LINE sticker set from my prompt or a prepared metadata.md, with bilingual LINE Creators Market metadata under the repository's output folder."
