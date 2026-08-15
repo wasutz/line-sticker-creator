@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prepare LINE Sticker Metadata"
+  short_description: "Plan sticker wording and submission metadata"
+  default_prompt: "Use $prepare-line-sticker-metadata to create metadata.md for a new LINE sticker pack before generating any artwork."
