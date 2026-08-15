@@ -55,9 +55,13 @@ Use $create-line-stickers to create a 24-piece sticker set using the character "
 ## With two reference links
 
 ```
-Use $create-line-stickers to create a 40-piece sticker set. Use the style from "https://store.line.me/stickershop/product/11832683/th" and the wording from "https://store.line.me/stickershop/product/34896847/th". The character will be a bear. Prepare submission-ready PNGs.
+Use $create-line-stickers to create a 40-piece sticker set. Use the style from "https://store.line.me/stickershop/product/8336222/th" and the wording from "https://store.line.me/stickershop/product/31396074/th". The character will be a cute white rabbit. Prepare submission-ready PNGs.
 ```
 
+With reference document.
+```
+ Use $create-line-stickers to create a 40-piece sticker set. Use the style from "https://store.line.me/stickershop/product/8336222/th" and the wording/phrasing from "https://store.line.me/stickershop/product/31396074/th". The character will be a cute white rabbit. Review the trending Thai phrases provided in /references/thai-wording-trends. Replace outdated or redundant phrases from the baseline set with these trending terms to ensure high social media relevance and engagement. Prepare submission-ready PNGs.
+```
 
 ## With Campaign
 
