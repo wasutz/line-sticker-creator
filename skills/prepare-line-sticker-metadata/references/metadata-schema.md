@@ -9,7 +9,7 @@ Use the headings and field labels below. Replace placeholders and omit sections 
 **Pack Name:** <folder-safe descriptive slug>
 **Sticker Count:** <8, 16, 24, 32, or 40> static stickers
 **Primary Language:** <language used on stickers>
-**Character:** <character name and local folder, or original character description>
+**Characters:** <one character, or partner A and partner B with local folders/original descriptions, identity invariants, and stable relative scale>
 **Audience and Tone:** <short creative direction>
 **Visual Direction:** <identity traits, style, palette, lettering, and consistency rules>
 
@@ -33,7 +33,7 @@ Use the headings and field labels below. Replace placeholders and omit sections 
 
 ## Sticker Plan
 
-1. **<phrase or “wordless”>** — Job: <chat intent>; Expression/action: <renderable direction>; Composition: <layout and lettering>; Tags: <useful tags>
+1. **<phrase or “wordless”>** — Job: <chat intent>; Expression/action: <renderable direction, or separate partner A and B actions plus interaction>; Speaker: <A, B, shared, or none>; Composition: <layout and lettering>; Tags: <useful tags>
 
 ## Campaign
 **Name:** <campaign name>

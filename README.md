@@ -52,6 +52,14 @@ Then refer to the character by its folder name:
 Use $create-line-stickers to create a 24-piece sticker set using the character "mochi" from the characters folder. Preserve Mochi's appearance and drawing style from every reference image in characters/mochi. Create original Thai wording for everyday chats and prepare submission-ready PNGs.
 ```
 
+## With two characters as a couple
+
+Store each character in its own folder, then name both characters and require them together:
+
+```text
+Use $create-line-stickers to create a 16-piece Thai couple sticker set using "mochi-bear" from characters/mochi-bear/ as partner A and "bunbun" from characters/bunbun/ as partner B. Show both partners in every sticker, preserve each character's appearance and their relative scale, and create affectionate, teasing, apologetic, and supportive everyday-chat moments. Prepare submission-ready PNGs.
+```
+
 ## With two reference links
 
 ```
