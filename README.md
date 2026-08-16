@@ -11,8 +11,8 @@ Use $prepare-line-sticker-metadata to plan a 40-piece Thai sticker pack using th
 Or with Campaign
 
 ```
-Use $prepare-line-sticker-metadata to plan a 40-piece Thai sticker pack using the character "mochi-bear".
-Save it under output/mochi-bear-working/metadata.md. This set of sticker is for "Working People Campaign": Read `skills/create-line-stickers/references/campaigns/working-campaign-2026.md` and ensure the pack satisfies every campaign requirement.
+Use $prepare-line-sticker-metadata to plan a 40-piece Thai sticker pack.
+Save it under output/colorful-character/metadata.md. This set of sticker is for "Colorful Stickers Campaign": Read `skills/create-line-stickers/references/campaigns/colorful-campaign-2026.md` and ensure the pack satisfies every campaign requirement.
 ```
 
 Then render directly from that contract:

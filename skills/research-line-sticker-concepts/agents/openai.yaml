@@ -1,0 +1,4 @@
+interface:
+  display_name: "Research LINE Sticker Concepts"
+  short_description: "Research characters and Thai wording for LINE stickers"
+  default_prompt: "Use $research-line-sticker-concepts to research a promising character concept and Thai wording, then save a reusable brief for $create-line-stickers."
