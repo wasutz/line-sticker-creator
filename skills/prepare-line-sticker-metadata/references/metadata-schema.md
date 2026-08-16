@@ -13,6 +13,12 @@ Use the headings and field labels below. Replace placeholders and omit sections 
 **Audience and Tone:** <short creative direction>
 **Visual Direction:** <identity traits, style, palette, lettering, and consistency rules>
 
+## Character Variant
+**Variant Name:** <distinct name or working label>
+**Source Character:** <saved character name and local folder>
+**Inherit:** <source traits that remain fixed>
+**Delta:** <only the requested visible changes>
+
 ## English
 **Title:** <natural English title>
 **Description:** <natural English description>
@@ -49,6 +55,6 @@ Use the headings and field labels below. Replace placeholders and omit sections 
 Planning complete. Artwork and submission package not yet generated or validated.
 ```
 
-Keep `## References`; write `- None` when no external or local reference is used. Keep `## Open Questions` so the handoff cannot hide uncertainty. Omit `## Campaign` unless the user explicitly requested one.
+Keep `## References`; write `- None` when no external or local reference is used. Keep `## Open Questions` so the handoff cannot hide uncertainty. Omit `## Character Variant` unless the pack derives a new character from a saved one. Omit `## Campaign` unless the user explicitly requested one.
 
 Add another localized title/description section when the user requests a language other than English or Thai. Keep English and Thai by default because the downstream sticker skill prepares bilingual submission metadata.

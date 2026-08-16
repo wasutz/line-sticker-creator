@@ -60,6 +60,16 @@ Store each character in its own folder, then name both characters and require th
 Use $create-line-stickers to create a 16-piece Thai couple sticker set using "mochi-bear" from characters/mochi-bear/ as partner A and "bunbun" from characters/bunbun/ as partner B. Show both partners in every sticker, preserve each character's appearance and their relative scale, and create affectionate, teasing, apologetic, and supportive everyday-chat moments. Prepare submission-ready PNGs.
 ```
 
+## With a character variant
+
+Use a saved character as the visual source and describe only what should change:
+
+```text
+Use $create-line-stickers to create a female-presenting variant of "bunbun" from characters/bunbun/. Preserve Bunbun's rabbit silhouette, proportions, facial construction, linework, and rendering style. Give the variant a distinct soft coral accent, a small left-ear flower accessory, and subtly longer eyelashes. Create and approve her reusable character reference first, then use it for a 40-piece Thai everyday-chat sticker set.
+```
+
+The same pattern can create a sibling, seasonal outfit, alternate colorway, or a second partner derived from an existing character. Name the traits to preserve and the traits to change whenever you already know them.
+
 ## With two reference links
 
 ```
