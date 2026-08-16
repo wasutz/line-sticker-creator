@@ -18,6 +18,12 @@ def main() -> int:
     parser.add_argument("--width", type=int, default=350)
     parser.add_argument("--height", type=int, default=90)
     parser.add_argument("--font-size", type=float, default=46)
+    parser.add_argument(
+        "--line-spacing",
+        type=float,
+        default=44,
+        help="Baseline-to-baseline spacing in pixels for multiline text",
+    )
     parser.add_argument("--fill", default="#5b4a47")
     parser.add_argument("--stroke", default="#ffffff")
     parser.add_argument("--stroke-width", type=float, default=4)
@@ -28,7 +34,7 @@ def main() -> int:
         parser.error("rsvg-convert is required for Thai text shaping")
 
     lines = args.text.split("|")
-    line_height = args.font_size * 1.05
+    line_height = args.line_spacing
     first_y = args.height / 2 - (len(lines) - 1) * line_height / 2 + args.font_size * 0.34
     tspans = "".join(
         f'<tspan x="{args.width / 2:g}" y="{first_y + i * line_height:g}">{html.escape(line)}</tspan>'
