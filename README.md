@@ -1,5 +1,21 @@
 # Line Sticker Creator Skill
 
+## One-click: character + theme, no questions asked
+
+```text
+Use $make-line-sticker-pack to build a pack for "bunbun" with theme "lazy".
+```
+
+Or the equivalent short form once the skill is installed:
+
+```text
+$make-line-sticker-pack bunbun lazy
+```
+
+Resolves the character against `characters/bunbun/`, matches `lazy` against `skills/create-line-stickers/references/campaigns/lazy-campaign-2026.md` if present, and otherwise treats every non-character token as wording direction. Runs `prepare-line-sticker-metadata` then `create-line-stickers` back to back with fixed defaults (40 stickers, Thai + English bilingual metadata, `© WhatAForkStudio`), an automated reference-sheet check, and a per-sticker critic loop in place of manual approval. Delivers the same `output/<pack-name>/` structure as the manual flow below, plus `auto-run-report.md` documenting what was auto-decided and any sticker that needed manual follow-up.
+
+For planning-only control, prepared-metadata workflows, or any of the modes below (couples, variants, style-only, two-reference), use the manual flow.
+
 ## Plan metadata before creating artwork
 
 Create and review the pack brief first:

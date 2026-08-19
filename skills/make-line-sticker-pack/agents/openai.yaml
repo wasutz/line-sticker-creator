@@ -1,0 +1,4 @@
+interface:
+  display_name: "Make LINE Sticker Pack"
+  short_description: "One-click LINE sticker pack from a character and theme"
+  default_prompt: "Use $make-line-sticker-pack to build, validate, and package a complete static LINE sticker pack unattended from just a character name and theme words."
