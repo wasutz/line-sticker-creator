@@ -10,6 +10,8 @@ import subprocess
 import tempfile
 from pathlib import Path
 
+from check_sticker_crop_seams import opaque_pixels
+
 
 def main() -> int:
     parser = argparse.ArgumentParser()
@@ -27,6 +29,11 @@ def main() -> int:
     parser.add_argument("--fill", default="#5b4a47")
     parser.add_argument("--stroke", default="#ffffff")
     parser.add_argument("--stroke-width", type=float, default=4)
+    parser.add_argument(
+        "--verify",
+        action="store_true",
+        help="Fail if rendered ink touches the canvas edge (proxy for clipped tone marks/vowels)",
+    )
     args = parser.parse_args()
 
     renderer = shutil.which("rsvg-convert")
@@ -51,6 +58,18 @@ def main() -> int:
         source.write(svg)
         source.flush()
         subprocess.run([renderer, "-o", str(output), source.name], check=True)
+
+    if args.verify:
+        pixels = opaque_pixels(output)
+        edge_pixels = [
+            (x, y)
+            for x, y in pixels
+            if x == 0 or y == 0 or x == args.width - 1 or y == args.height - 1
+        ]
+        if edge_pixels:
+            print(f"FAIL: {output}: rendered ink touches canvas edge ({len(edge_pixels)}px) — likely clipped mark")
+            return 1
+        print(f"Text headroom check passed: {output}")
     return 0
 
 
