@@ -1,6 +1,7 @@
 output/
 tmp/
 .DS_store
+.superpowers/
 
 
 # Byte-compiled / optimized / DLL files
