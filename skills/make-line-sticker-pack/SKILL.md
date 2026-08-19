@@ -44,16 +44,16 @@ Before rendering any numbered sticker:
 
 ## 4. Render
 
-Follow `create-line-stickers/SKILL.md` steps 6-7 (rendering, grid extraction, Thai typography) in batches of 8 numbered stickers at a time. Run every sticker in a batch through the critic loop (Section 5) before treating the batch as accepted and moving to the next batch.
+Follow `create-line-stickers/SKILL.md` step 6 (rendering, grid extraction, Thai typography) in batches of 8 numbered stickers at a time. Run every sticker in a batch through the critic loop (Section 5) before treating the batch as accepted and moving to the next batch.
 
 ## 5. Critic loop
 
-Applied to the reference sheet (Section 3) and to every rendered numbered sticker (Section 4), cheapest checks first, stopping at the first failure:
+Applied to the reference sheet (Section 3), every rendered numbered sticker (Section 4), and `main.png`/`tab.png` composites (Section 6), cheapest checks first, stopping at the first failure:
 
 1. Run `python3 <skill-directory>/../create-line-stickers/scripts/validate_line_stickers.py` and `check_sticker_crop_seams.py` (structural failures: dimensions, crop seams). For the reference sheet, skip these two (they check pack-level and numbered-sticker conventions that don't apply to a single reference image); go straight to the vision check.
-2. For a rendered numbered sticker, run `check_pose_duplicates.py` against the stickers already accepted in this pack (near-duplicate pose).
-3. If the sticker carries rendered Thai lettering produced via `render_thai_text.py`, that render must have used `--verify` and passed (edge-clipped ink is a failure here, not a separate re-check).
-4. Read the candidate image at 1:1 against the accepted reference sheet (and pairing reference, in couple mode). Judge: character identity drift from the reference, expression/pose reads as the plan intends, text (if any) is legible, ~10px transparent breathing room around the composition, pose is visually distinct from every already-accepted sticker in this pack.
+2. For a rendered numbered sticker, run `check_pose_duplicates.py` against the stickers already accepted in this pack (near-duplicate pose). Skip this step for `main.png`/`tab.png` (not applicable to composite representatives).
+3. If the sticker carries rendered Thai lettering produced via `render_thai_text.py`, that render must have used `--verify` and passed (edge-clipped ink is a failure here, not a separate re-check). Skip this step for `main.png`/`tab.png` (not applicable to composites).
+4. Read the candidate image at 1:1 against the accepted reference sheet (and pairing reference, in couple mode). Judge: character identity drift from the reference, expression/pose reads as the plan intends, text (if any) is legible, ~10px transparent breathing room around the composition. For numbered stickers, also confirm pose is visually distinct from every already-accepted sticker in this pack. For `main.png`/`tab.png`, confirm the composite faithfully represents the full pack's character and mood.
 
 Any failure at any step: re-render that one sticker (or the reference sheet, in Section 3) with a targeted correction note describing exactly what failed, and try again against the same retry budget.
 
