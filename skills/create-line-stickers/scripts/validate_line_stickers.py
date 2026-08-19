@@ -88,7 +88,7 @@ def main() -> int:
     zip_path = folder / f"{folder.name}-stickers.zip"
 
     if package_mode:
-        allowed_root_names = {expected_image_folder.name, "metadata.md", zip_path.name}
+        allowed_root_names = {expected_image_folder.name, "metadata.md", zip_path.name, "auto-run-report.md"}
         unexpected_root = sorted(path.name for path in folder.iterdir() if path.name not in allowed_root_names)
         if unexpected_root:
             errors.append(f"unexpected pack-root entries: {', '.join(unexpected_root)}")

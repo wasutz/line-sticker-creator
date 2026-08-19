@@ -13,6 +13,17 @@ from pathlib import Path
 from check_sticker_crop_seams import opaque_pixels
 
 
+def image_dimensions(path: Path) -> tuple[int, int]:
+    result = subprocess.run(
+        ["magick", "identify", "-format", "%w %h", str(path)],
+        check=True,
+        text=True,
+        capture_output=True,
+    )
+    width, height = result.stdout.split()
+    return int(width), int(height)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--text", required=True, help="Use | for a line break")
@@ -39,6 +50,8 @@ def main() -> int:
     renderer = shutil.which("rsvg-convert")
     if not renderer:
         parser.error("rsvg-convert is required for Thai text shaping")
+    if args.verify and not shutil.which("magick"):
+        parser.error("ImageMagick `magick` is required for --verify")
 
     lines = args.text.split("|")
     line_height = args.line_spacing
@@ -60,11 +73,12 @@ def main() -> int:
         subprocess.run([renderer, "-o", str(output), source.name], check=True)
 
     if args.verify:
+        actual_width, actual_height = image_dimensions(output)
         pixels = opaque_pixels(output)
         edge_pixels = [
             (x, y)
             for x, y in pixels
-            if x == 0 or y == 0 or x == args.width - 1 or y == args.height - 1
+            if x == 0 or y == 0 or x == actual_width - 1 or y == actual_height - 1
         ]
         if edge_pixels:
             print(f"FAIL: {output}: rendered ink touches canvas edge ({len(edge_pixels)}px) — likely clipped mark")

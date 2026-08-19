@@ -12,15 +12,20 @@ from pathlib import Path
 
 PIXEL = re.compile(r"^(\d+),(\d+): \((\d+)")
 
-HASH_WIDTH = 9
-HASH_HEIGHT = 8
+HASH_WIDTH = 17
+HASH_HEIGHT = 16
 
 
 def alpha_grid(path: Path) -> list[list[int]]:
+    # Crop to the opaque bounding box before resizing so a character's position/scale
+    # within the shared 370x320 canvas (every sticker has the same "text on top,
+    # blob centered" layout) doesn't dominate the hash — only the silhouette shape does.
     result = subprocess.run(
         [
             "magick", str(path),
             "-alpha", "extract",
+            "-fuzz", "2%",
+            "-trim", "+repage",
             "-resize", f"{HASH_WIDTH}x{HASH_HEIGHT}!",
             "-depth", "8",
             "txt:-",
@@ -57,13 +62,16 @@ def main() -> int:
     parser.add_argument(
         "--threshold",
         type=int,
-        default=10,
-        help="Max Hamming distance (of 64 bits) flagged as a near-duplicate pose",
+        default=40,
+        help="Max Hamming distance (of 256 bits) flagged as a near-duplicate pose",
     )
     args = parser.parse_args()
 
     if not shutil.which("magick"):
         parser.error("ImageMagick `magick` is required")
+
+    if not args.directory.is_dir():
+        parser.error(f"not a directory: {args.directory}")
 
     paths = sorted(args.directory.glob("[0-9][0-9].png"))
     hashes = {path: dhash(path) for path in paths}
